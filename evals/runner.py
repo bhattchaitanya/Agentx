@@ -173,7 +173,7 @@ def run_evals(
     if cases is None:
         cases = ALL_CASES
     if agent is None:
-        agent = CalculatorAgent()
+        agent = CalculatorAgent(skill="all")
 
     summary = EvalSummary()
 

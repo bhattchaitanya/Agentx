@@ -37,7 +37,13 @@ class InputGuardrail:
         r"\b(add|subtract|multiply|divide|plus|minus|times|divided|"
         r"square root|sqrt|power|modulo|remainder|percent|"
         r"sum|product|difference|quotient|calculate|compute|what is|"
-        r"how much|solve|evaluate)\b",
+        r"how much|solve|evaluate|"
+        # calculus
+        r"derivative|differentiate|integral|integrate|limit|taylor|series|"
+        r"gradient|diverge|converge|"
+        # matrices / linear algebra
+        r"matrix|matrices|determinant|inverse|eigenvalue|eigenvector|"
+        r"transpose|rank|linear system|vector)\b",
         re.IGNORECASE,
     )
 

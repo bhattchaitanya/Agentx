@@ -147,11 +147,15 @@ TOOL_FUNCTIONS: dict[str, Any] = {
 
 def execute_tool(name: str, inputs: dict) -> str:
     """Execute a calculator tool by name and return its result as a string."""
-    fn = TOOL_FUNCTIONS.get(name)
+    from calculator.calculus_tools import CALCULUS_TOOL_FUNCTIONS
+    from calculator.matrix_tools import MATRIX_TOOL_FUNCTIONS
+
+    all_fns = {**TOOL_FUNCTIONS, **CALCULUS_TOOL_FUNCTIONS, **MATRIX_TOOL_FUNCTIONS}
+    fn = all_fns.get(name)
     if fn is None:
         return f"Unknown tool: {name}"
     try:
         result = fn(**inputs)
         return str(result)
-    except (ValueError, ZeroDivisionError) as e:
+    except (ValueError, ZeroDivisionError, Exception) as e:
         return f"Error: {e}"
